@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nimbus | Clima y Viajes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Nimbus</h1>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Busca una ciudad (ej. Hermosillo)..." autocomplete="off">
+                <ul id="suggestions" class="suggestions-list"></ul>
+            </div>
+        </section>
+
+        <section id="weatherResult" class="weather-card">
+            <p>Busca una ciudad para ver el pronóstico.</p>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
