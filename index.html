@@ -4,25 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nimbus | Clima y Viajes</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --animate-fade-in: fadeIn 0.5s ease-out;
+            @keyframes fadeIn {
+                0% { opacity: 0; transform: translateY(10px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 </head>
-<body>
-    <header>
-        <h1>Nimbus</h1>
-    </header>
 
-    <main>
-        <section class="search-section">
-            <div class="search-container">
-                <input type="text" id="cityInput" placeholder="Busca una ciudad (ej. Hermosillo)..." autocomplete="off">
-                <ul id="suggestions" class="suggestions-list"></ul>
+<body class="bg-[#F7F7F5] text-[#37352F] font-sans min-h-screen p-4 md:p-8">
+    <div class="max-w-6xl mx-auto space-y-2">
+        
+        <header class="flex flex-col md:flex-row md:items-end justify-between gap-4 py-2 border-b border-gray-200 transition-all">
+            <div>
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900">Nimbus</h1>
+                <p class="text-gray-500 text-sm mt-1">Clima y recomendaciones de viaje</p>
             </div>
-        </section>
+             <div class="lg:hidden sticky top-0 z-30 bg-[#F7F7F5] py-2 lg:p-1 lg:rounded-xl lg:shadow-sm lg:border lg:border-gray-200">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="cityInput" placeholder="Buscar ciudad..." 
+                            class="w-full bg-white lg:bg-transparent border border-gray-200 lg:border-none rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 lg:focus:ring-0 focus:bg-gray-50 transition-colors placeholder-gray-400" autocomplete="off">
+                    </div>
+                    <ul id="suggestions" class="absolute left-0 right-0 top-full mt-2 bg-white rounded-lg shadow-xl border border-gray-100 max-h-60 overflow-y-auto z-50 hidden"></ul>
+                </div>
+        </header>
 
-        <section id="weatherResult" class="weather-card">
-            <p>Busca una ciudad para ver el pronóstico.</p>
-        </section>
-    </main>
+        <main class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
+            
+            <section class="lg:col-span-4 space-y-6 lg:sticky lg:top-8">
+                
+                <div class="hidden lg:block sticky top-0 z-30 bg-[#F7F7F5] py-2 lg:p-1 lg:rounded-xl lg:shadow-sm lg:border lg:border-gray-200">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="cityInput" placeholder="Buscar ciudad..." 
+                            class="w-full bg-white lg:bg-transparent border border-gray-200 lg:border-none rounded-lg pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 lg:focus:ring-0 focus:bg-gray-50 transition-colors placeholder-gray-400" autocomplete="off">
+                    </div>
+                    <ul id="suggestions" class="absolute left-0 right-0 top-full mt-2 bg-white rounded-lg shadow-xl border border-gray-100 max-h-60 overflow-y-auto z-50 hidden"></ul>
+                </div>
+
+                <div class="space-y-4">
+                     <section id="historySection"></section>
+                     <section id="favoritesSection"></section>
+                </div>
+            </section>
+
+            <section id="weatherResult" class="lg:col-span-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-12 text-center flex flex-col items-center justify-center min-h-[400px]">
+                    <div class="bg-gray-50 p-4 rounded-full mb-4">
+                        <i class="ph ph-magnifying-glass"></i>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Sin datos que mostrar</h3>
+                    <p class="text-gray-500 text-sm mt-1">Busca una ciudad para ver el reporte detallado.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script src="app.js"></script>
 </body>
