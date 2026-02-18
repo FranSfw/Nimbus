@@ -35,3 +35,6 @@ Para utilizar este proyecto localmente, asegúrate de tener una clave de API vá
 3.  Reemplaza el valor de `const API_KEY` con tu propio token.
 4.  Ejecuta el archivo `index.html` en tu navegador.
 
+## Deployado
+
+https://nimbus-navy-nine.vercel.app/ 
