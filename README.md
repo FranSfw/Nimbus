@@ -38,3 +38,8 @@ Para utilizar este proyecto localmente, asegúrate de tener una clave de API vá
 ## Deployado
 
 https://nimbus-navy-nine.vercel.app/ 
+
+
+## Imagen del proyecto
+
+![Nimbus](image.png)
